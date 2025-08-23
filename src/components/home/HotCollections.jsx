@@ -19,7 +19,7 @@ const HotCollections = () => {
       console.log(data);
     }
     fetchImages();
-  },[]);
+  }, []);
 
   return (
     <section id="section-collections" className="no-bottom">
@@ -31,30 +31,38 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          {new Array(4).fill(0).map((_, index) => (
-            img.map(image => (
-            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={nftId}>
-              <div className="nft_coll">
-                <div className="nft_wrap">
-                  <Link to="/item-details">
-                    <img src={image.nftImage} className="lazy img-fluid" alt="" />
-                  </Link>
-                </div>
-                <div className="nft_coll_pp">
-                  <Link to="/author">
-                    <img className="lazy pp-coll" src={image.authorImage} alt="" />
-                  </Link>
-                  <i className="fa fa-check"></i>
-                </div>
-                <div className="nft_coll_info">
-                  <Link to="/explore">
-                    <h4>{image.title}</h4>
-                  </Link>
-                  <span>ERC-{image.code}</span>
+          {new Array(4).fill(0).map((_, index) => 
+            img.slice(0, 6).map((image) => (
+              <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={nftId}>
+                <div className="nft_coll">
+                  <div className="nft_wrap">
+                    <Link to="/item-details">
+                      <img
+                        src={image.nftImage}
+                        className="lazy img-fluid"
+                        alt=""
+                      />
+                    </Link>
+                  </div>
+                  <div className="nft_coll_pp">
+                    <Link to="/author">
+                      <img
+                        className="lazy pp-coll"
+                        src={image.authorImage}
+                        alt=""
+                      />
+                    </Link>
+                    <i className="fa fa-check"></i>
+                  </div>
+                  <div className="nft_coll_info">
+                    <Link to="/explore">
+                      <h4>{image.title}</h4>
+                    </Link>
+                    <span>ERC-{image.code}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          )))
+            ))
           )}
         </div>
       </div>
