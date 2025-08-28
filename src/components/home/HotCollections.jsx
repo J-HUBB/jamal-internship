@@ -3,10 +3,9 @@ import { Link, useParams } from "react-router-dom";
 //import AuthorImage from "../../images/author_thumbnail.jpg";
 //import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const HotCollections = () => {
   const { nftId } = useParams();
@@ -25,12 +24,73 @@ const HotCollections = () => {
     fetchImages();
   }, []);
 
+ function NextArrow({ onClick }) {
+    return (
+      <div
+        onClick={onClick}
+        className="custom-arrow--next"
+          /*style={{
+          position: "absolute",
+          top: "50%",
+          right: "-25px",
+          transform: "translateY(-50%)",
+          zIndex: 2,
+          width: 40,
+          height: 40,
+          background: "#fff",
+          borderRadius: "50%",
+          boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          cursor: "pointer",
+        }}*/
+      >
+        <i className="fa fa-chevron-right" style={{ fontSize: 16 }} />
+      </div>
+    );
+  }
+
+  function PrevArrow({ onClick }) {
+    return (
+      <div
+        onClick={onClick}
+        className="custom-arrow--prev"
+        /*style={{
+          position: "absolute",
+          top: "50%",
+          left: "-25px",
+          transform: "translateY(-50%)",
+          zIndex: 2,
+          width: 40,
+          height: 40,
+          background: "#fff",
+          borderRadius: "50%",
+          boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          cursor: "pointer",
+        }}*/
+      >
+        <i className="fa fa-chevron-left" style={{ fontSize: 16 }} />
+      </div>
+    );
+  }
+
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 600,
     slidesToShow: 4,
     slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      { breakpoint: 1200, settings: { slidesToShow: 3, slidesToScroll: 1 } },
+      { breakpoint: 992, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+      { breakpoint: 768, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+    ],
   };
 
   return (
@@ -44,7 +104,7 @@ const HotCollections = () => {
             </div>
           </div>
           {/*new Array(4).fill(0).map((_, index) =>  */}
-         <OwlCarousel className="owl-theme" loop margin={4} nav {...settings}>
+         <Slider  {...settings}>
           {img.slice(0, 6).map((image, index) => (
               <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={nftId}>
                 <div className="nft_coll">
@@ -76,7 +136,7 @@ const HotCollections = () => {
                 </div>
               </div>
           ))}
-          </OwlCarousel>
+          </Slider>
         </div>
       </div>
     </section>
