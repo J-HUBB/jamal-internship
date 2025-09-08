@@ -10,8 +10,14 @@ import "slick-carousel/slick/slick-theme.css";
 const HotCollections = () => {
   const { nftId } = useParams();
   const [img, setImg] = useState([]);
-  //const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   //const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading();
+    }, 1000);
+  });
 
   useEffect(() => {
     async function fetchImages() {
@@ -106,11 +112,27 @@ const HotCollections = () => {
           {/*new Array(4).fill(0).map((_, index) =>  */}
           <div className="slider_container">
             <Slider {...settings}>
-              {img.slice(0, 6).map((image, index) => (
-                  <div
+              {img.slice(0, 6).map((image, index) =>
+                /*<div
                     className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
                     key={nftId}
-                  >
+                  >*/
+                loading ? (
+                  <>
+                    <div className="skeleton-box::after">
+                      <div className="skeleton-wrap" />
+
+                      <div className="skeleton-coll_pp">
+                        <i className="fa fa-check"></i>
+                      </div>
+                      <div className="skeleton-info">
+                        <div className="skeleton-title" />
+                        <div className="skeleton-code" />
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
                     <div className="nft_coll">
                       <div className="nft_wrap">
                         <Link to="/item-details">
@@ -138,8 +160,10 @@ const HotCollections = () => {
                         <span>ERC-{image.code}</span>
                       </div>
                     </div>
-                  </div>
-              ))}
+                  </>
+                )
+                /* </div>*/
+              )}
             </Slider>
           </div>
         </div>
