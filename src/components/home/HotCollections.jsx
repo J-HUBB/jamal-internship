@@ -115,9 +115,7 @@ const HotCollections = () => {
           </div>
           <Slider {...settings}>
             {loading ? (
-              <div key={nftId} className="px-1">
-                <PrevArrow />
-                <NextArrow />
+              <div key={nftId} className="px-1" style={{ display: "flex"}}>
                 {new Array(4).fill(0).map((_, index) => (
                   <div className="nft_coll">
                     <div className="nft_wrap">
