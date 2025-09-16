@@ -4,11 +4,15 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "react-loading-skeleton/dist/skeleton.css";
+/*import Skeleton from "react-loading-skeleton";*/
+import Skeleton from "../UI/Skeleton";
 
 const HotCollections = () => {
   const { nftId } = useParams();
   const [img, setImg] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [breakpoint, setBreakpoint] = useState("mobile");
   //const [error, setError] = useState(null);
 
   async function fetchImages() {
@@ -24,8 +28,59 @@ const HotCollections = () => {
   }, []);
 
   setTimeout(() => {
-    setLoading();
+    setLoading(false);
   }, 3000);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1200) {
+        setBreakpoint("desktop");
+      } else if (window.innerWidth >= 768) {
+        setBreakpoint("tablet");
+      } else {
+        setBreakpoint("mobile");
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const renderSkeleton = () => {
+    switch (breakpoint) {
+      case "desktop":
+        return (
+          <>
+            <div style={{ display: "flex", justifyContent: "center", flexDirection: "row" }}>
+              <PrevArrow />
+              <NextArrow />
+              <Skeleton count={4} width={260} height={253} />
+            </div>
+          </>
+        );
+      case "tablet":
+        return (
+          <>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <PrevArrow />
+              <NextArrow />
+              <Skeleton count={2} width={285} height={267} />
+            </div>
+          </>
+        );
+      case "mobile":
+      default:
+        return (
+          <>
+           <div style={{ display: "flex", justifyContent: "center"}}>
+            <Skeleton count={1} width={295} height={273} />
+            </div>
+          </>
+        );
+    }
+  };
 
   function NextArrow({ onClick }) {
     return (
@@ -113,76 +168,45 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <Slider {...settings}>
+          <div>
             {loading ? (
-              <div key={nftId} className="px-1" style={{ display: "flex"}}>
-                {new Array(4).fill(0).map((_, index) => (
-                  <div className="nft_coll">
-                    <div className="nft_wrap">
-                      <div
-                        className="skeleton-box"
-                        style={{ width: "100%", height: "200px" }}
-                      ></div>
-                    </div>
-                    <div className="nft_coll_pp">
-                      <div
-                        className="skeleton-box"
-                        style={{
-                          width: "50px",
-                          height: "50px",
-                          borderRadius: "50px",
-                        }}
-                      ></div>
-                      <i className="fa fa-check"></i>
-                    </div>
-                    <div className="nft_coll_info">
-                      <div
-                        className="skeleton-box"
-                        style={{ width: "100px", height: "20px" }}
-                      ></div>
-                      <br />
-                      <div
-                        className="skeleton-box"
-                        style={{ width: "60px", height: "20px" }}
-                      ></div>
+              renderSkeleton()
+            ) : (
+              <Slider {...settings}>
+                {img.map((image, index) => (
+                  <div key={nftId} className="px-1">
+                    <div className="nft_coll">
+                      <div className="nft_wrap">
+                        <Link to="/item-details">
+                          <img
+                            src={image.nftImage}
+                            className="lazy img-fluid"
+                            alt=""
+                          />
+                        </Link>
+                      </div>
+                      <div className="nft_coll_pp">
+                        <Link to="/author">
+                          <img
+                            className="lazy pp-coll"
+                            src={image.authorImage}
+                            alt=""
+                          />
+                        </Link>
+                        <i className="fa fa-check"></i>
+                      </div>
+                      <div className="nft_coll_info">
+                        <Link to="/explore">
+                          <h4>{image.title}</h4>
+                        </Link>
+                        <span>ERC-{image.code}</span>
+                      </div>
                     </div>
                   </div>
                 ))}
-              </div>
-            ) : (
-              img.map((image, index) => (
-                <div key={nftId} className="px-1">
-                  <div className="nft_coll">
-                    <div className="nft_wrap">
-                      <Link to="/item-details">
-                        <img
-                          src={image.nftImage}
-                          className="lazy img-fluid"
-                          alt=""
-                        />
-                      </Link>
-                    </div>
-                    <div className="nft_coll_pp">
-                      <Link to="/author">
-                        <img
-                          className="lazy pp-coll"
-                          src={image.authorImage}
-                          alt=""
-                        />
-                      </Link>
-                      <i className="fa fa-check"></i>
-                    </div>
-                    <div className="nft_coll_info">
-                      <Link to="/explore">
-                        <h4>{image.title}</h4>
-                      </Link>
-                      <span>ERC-{image.code}</span>
-                    </div>
-                  </div>
-                </div>
-              ))
+              </Slider>
             )}
-          </Slider>
+          </div>
         </div>
       </div>
     </section>

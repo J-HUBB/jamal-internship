@@ -15617,6 +15617,10 @@ img {
     display: none;
   }
 
+  #menu-btn {
+    display: block;
+  }
+
   #section-collections .custom-arrow--prev {
     position: absolute;
     top: 50%;
@@ -15726,7 +15730,7 @@ img {
     design for 768px
     /* ================================================== */
 
-@media only screen and (min-width: 480px) and (max-width: 576px) {
+@media only screen and (min-width: 480px) and (max-width: 575px) {
   .de-table.table-rank thead th:nth-child(5),
   .de-table.table-rank thead th:nth-child(6),
   .de-table.table-rank thead th:nth-child(7),
@@ -16230,7 +16234,7 @@ img {
     top: 22.5%;
   }
 
-  .nft_coll {
+  body .nft_coll {
     background: #ffffff;
     padding-bottom: 10px;
     border: solid 1px #dddddd;
@@ -16238,7 +16242,7 @@ img {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     margin-bottom: 10px;
-    width: 310px;
+    width: 455px;
     text-align: center;
   }
 }
@@ -17036,7 +17040,7 @@ img {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     margin-bottom: 10px;
-    width: 285px;
+    width: 296px;
     text-align: center;
   }
 
