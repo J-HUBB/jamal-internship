@@ -1,14 +1,13 @@
 import React from "react";
 
-const Skeleton = ({ width, height, borderRadius, count }) => {
-  return (
-    <div style={{display: "flex"}}>
-    <div className="px-1">
+const Skeleton = ({ width, height, count }) => {
+  const skeletons = Array.from({length: count, width: width, height: height},(_,index) => (
+        <div key={index} className="px-1">
       <div className="nft_coll">
         <div className="nft_wrap">
           <div
             className="skeleton-box"
-            style={{ width: "100%", height: "200px" }}
+            style={{ width: "100%", height: "150px" }}
           ></div>
         </div>
         <div className="nft_coll_pp">
@@ -35,6 +34,12 @@ const Skeleton = ({ width, height, borderRadius, count }) => {
         </div>
       </div>
     </div>
+
+  )
+  )
+  return (
+    <div style={{display: "flex"}}>
+      {skeletons}
     </div>
   );
 };

@@ -34,9 +34,14 @@ const HotCollections = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1200) {
+        setBreakpoint("lg-desktop");
+      } else if (window.innerWidth >= 992) {
         setBreakpoint("desktop");
       } else if (window.innerWidth >= 768) {
         setBreakpoint("tablet");
+      } else if (window.innerWidth >= 576) {
+        setBreakpoint("lg-mobile");
+      
       } else {
         setBreakpoint("mobile");
       }
@@ -50,13 +55,21 @@ const HotCollections = () => {
 
   const renderSkeleton = () => {
     switch (breakpoint) {
+      case "lg-desktop":
+        return (
+          <>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <PrevArrow/>
+              <NextArrow/>
+              <Skeleton count={4} width={260} height={253.57} />
+            </div>
+          </>
+        );
       case "desktop":
         return (
           <>
-            <div style={{ display: "flex", justifyContent: "center", flexDirection: "row" }}>
-              <PrevArrow />
-              <NextArrow />
-              <Skeleton count={4} width={260} height={253} />
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Skeleton count={3} width={296} height={273.85} />
             </div>
           </>
         );
@@ -64,18 +77,24 @@ const HotCollections = () => {
         return (
           <>
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <PrevArrow />
-              <NextArrow />
-              <Skeleton count={2} width={285} height={267} />
+              <Skeleton count={2} width={296} height={273.85} />
             </div>
           </>
         );
-      case "mobile":
-      default:
+      case "lg-mobile":
         return (
           <>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Skeleton count={1} width={455} height={363.43} />
+            </div>
+          </>
+        );
+        case "mobile":
+          default:
+            return (
+              <>
            <div style={{ display: "flex", justifyContent: "center"}}>
-            <Skeleton count={1} width={295} height={273} />
+            <Skeleton count={1} width={295} height={273.29} />
             </div>
           </>
         );
@@ -138,6 +157,7 @@ const HotCollections = () => {
 
   const settings = {
     dots: true,
+    dotsClass: "slick-dots slick-thumb",
     infinite: true,
     speed: 600,
     slidesToShow: 4,
@@ -145,11 +165,23 @@ const HotCollections = () => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1 } },
+      { breakpoint: 1200, settings: { slidesToShow: 4, slidesToScroll: 1 } },
+      { breakpoint: 1024, settings: { slidesToShow: 4, slidesToScroll: 1 } },
+      { breakpoint: 992, settings: { slidesToShow: 3, slidesToScroll: 1 } },
       { breakpoint: 768, settings: { slidesToShow: 2, slidesToScroll: 1 } },
       { breakpoint: 576, settings: { slidesToShow: 1, slidesToScroll: 1 } },
       { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } },
     ],
+    /*customPaging: function(i) {
+      const slide = img[i];
+      return (
+        <a href={slide.nftImage}>
+          <div className="slick-dots slick-thumb">
+            {slide.id}
+          </div>
+        </a>
+      );
+    },*/
   };
 
   return (
@@ -168,13 +200,14 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div>
+          <div style={{display: "block", justifyContent: "center", alignItems: "center" }}>
             {loading ? (
               renderSkeleton()
             ) : (
-              <Slider {...settings}>
+              <Slider  {...settings}>
                 {img.map((image, index) => (
-                  <div key={nftId} className="px-1">
+                  <div key={index} className="px-1" style={{display: "flex", justifyContent: 'center'}}>
+                    <div style={{}}>
                     <div className="nft_coll">
                       <div className="nft_wrap">
                         <Link to="/item-details">
@@ -201,6 +234,7 @@ const HotCollections = () => {
                         </Link>
                         <span>ERC-{image.code}</span>
                       </div>
+                    </div>
                     </div>
                   </div>
                 ))}
