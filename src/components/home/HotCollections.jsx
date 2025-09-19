@@ -23,13 +23,13 @@ const HotCollections = () => {
     console.log(data);
   }
 
-  useEffect(() => {
+  /*useEffect(() => {
     fetchImages();
-  }, []);
+  }, []);*/
 
-  setTimeout(() => {
+  /*setTimeout(() => {
     setLoading(false);
-  }, 3000);
+  }, 3000);*/
 
   useEffect(() => {
     const handleResize = () => {
@@ -45,6 +45,10 @@ const HotCollections = () => {
       } else {
         setBreakpoint("mobile");
       }
+        setTimeout(() => {
+    setLoading(false);
+  }, 3000);
+  fetchImages();
     };
 
     window.addEventListener("resize", handleResize);
