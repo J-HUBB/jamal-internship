@@ -15448,7 +15448,7 @@ img {
   justify-content: center;
 }
 
-.custom-arrow--prev {
+/*.custom-arrow--prev {
   position: absolute;
   top: 50%;
   right: 100%;
@@ -15480,10 +15480,10 @@ img {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-}
+}*/
 
 .slider_container {
-  display: flex;
+  display: block;
   justify-content: center;
 }
 
@@ -17363,7 +17363,7 @@ section {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   margin-bottom: 10px;
-  width: 215px;
+  width: 100%;
   text-align: center;
 }
 

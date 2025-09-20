@@ -12,7 +12,7 @@ const HotCollections = () => {
   const { nftId } = useParams();
   const [img, setImg] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [breakpoint, setBreakpoint] = useState("mobile");
+  const [breakpoint, setBreakpoint] = useState("sm-mobile");
   //const [error, setError] = useState(null);
 
   async function fetchImages() {
@@ -41,14 +41,15 @@ const HotCollections = () => {
         setBreakpoint("tablet");
       } else if (window.innerWidth >= 576) {
         setBreakpoint("lg-mobile");
-      
-      } else {
+      } else if (window.innerWidth >= 480) {
         setBreakpoint("mobile");
+      } else {
+        setBreakpoint("sm-mobile");
       }
-        setTimeout(() => {
-    setLoading(false);
-  }, 3000);
-  fetchImages();
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
+      fetchImages();
     };
 
     window.addEventListener("resize", handleResize);
@@ -62,9 +63,7 @@ const HotCollections = () => {
       case "lg-desktop":
         return (
           <>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <PrevArrow/>
-              <NextArrow/>
+            <div style={{}}>
               <Skeleton count={4} width={260} height={253.57} />
             </div>
           </>
@@ -72,7 +71,7 @@ const HotCollections = () => {
       case "desktop":
         return (
           <>
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{}}>
               <Skeleton count={3} width={296} height={273.85} />
             </div>
           </>
@@ -93,12 +92,20 @@ const HotCollections = () => {
             </div>
           </>
         );
-        case "mobile":
-          default:
-            return (
-              <>
-           <div style={{ display: "flex", justifyContent: "center"}}>
-            <Skeleton count={1} width={295} height={273.29} />
+      case "mobile":
+        return (
+          <>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Skeleton count={1} width={380} height={321.18} />
+            </div>
+          </>
+        );
+      case "sm-mobile":
+      default:
+        return (
+          <>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Skeleton count={1} width={295} height={273.29} />
             </div>
           </>
         );
@@ -110,10 +117,10 @@ const HotCollections = () => {
       <div
         onClick={onClick}
         className="custom-arrow--next"
-        /*style={{
+        style={{
           position: "absolute",
           top: "50%",
-          right: "-25px",
+          right: "98px",
           transform: "translateY(-50%)",
           zIndex: 2,
           width: 40,
@@ -125,7 +132,7 @@ const HotCollections = () => {
           alignItems: "center",
           justifyContent: "center",
           cursor: "pointer",
-        }}*/
+        }}
       >
         <i className="fa fa-chevron-right" style={{ fontSize: 16 }} />
       </div>
@@ -140,7 +147,7 @@ const HotCollections = () => {
         /*style={{
           position: "absolute",
           top: "50%",
-          left: "-25px",
+          left: "90%x",
           transform: "translateY(-50%)",
           zIndex: 2,
           width: 40,
@@ -204,45 +211,51 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div style={{display: "block", justifyContent: "center", alignItems: "center" }}>
+          <div
+            style={{
+              display: "block",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             {loading ? (
               renderSkeleton()
             ) : (
-              <Slider  {...settings}>
-                {img.map((image, index) => (
-                  <div key={index} className="px-1" style={{display: "flex", justifyContent: 'center'}}>
-                    <div style={{}}>
-                    <div className="nft_coll">
-                      <div className="nft_wrap">
-                        <Link to="/item-details">
-                          <img
-                            src={image.nftImage}
-                            className="lazy img-fluid"
-                            alt=""
-                          />
-                        </Link>
-                      </div>
-                      <div className="nft_coll_pp">
-                        <Link to="/author">
-                          <img
-                            className="lazy pp-coll"
-                            src={image.authorImage}
-                            alt=""
-                          />
-                        </Link>
-                        <i className="fa fa-check"></i>
-                      </div>
-                      <div className="nft_coll_info">
-                        <Link to="/explore">
-                          <h4>{image.title}</h4>
-                        </Link>
-                        <span>ERC-{image.code}</span>
+              <div className="slider_container">
+                <Slider {...settings}>
+                  {img.map((image, index) => (
+                    <div key={index} className="" style={{}}>
+                      <div className="nft_coll">
+                        <div className="nft_wrap">
+                          <Link to="/item-details">
+                            <img
+                              src={image.nftImage}
+                              className="lazy img-fluid"
+                              alt=""
+                            />
+                          </Link>
+                        </div>
+                        <div className="nft_coll_pp">
+                          <Link to="/author">
+                            <img
+                              className="lazy pp-coll"
+                              src={image.authorImage}
+                              alt=""
+                            />
+                          </Link>
+                          <i className="fa fa-check"></i>
+                        </div>
+                        <div className="nft_coll_info">
+                          <Link to="/explore">
+                            <h4>{image.title}</h4>
+                          </Link>
+                          <span>ERC-{image.code}</span>
+                        </div>
                       </div>
                     </div>
-                    </div>
-                  </div>
-                ))}
-              </Slider>
+                  ))}
+                </Slider>
+              </div>
             )}
           </div>
         </div>

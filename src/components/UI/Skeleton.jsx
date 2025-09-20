@@ -1,6 +1,7 @@
 import React from "react";
 
 const Skeleton = ({ width, height, count }) => {
+  const containerStyle = {display:"flex",flexDirection: "row",gap:"12px"};
   const skeletons = Array.from({length: count, width: width, height: height},(_,index) => (
         <div key={index} className="px-1">
       <div className="nft_coll">
@@ -38,7 +39,7 @@ const Skeleton = ({ width, height, count }) => {
   )
   )
   return (
-    <div style={{display: "flex"}}>
+    <div style={containerStyle}>
       {skeletons}
     </div>
   );
