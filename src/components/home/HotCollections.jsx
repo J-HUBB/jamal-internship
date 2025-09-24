@@ -35,6 +35,8 @@ const HotCollections = () => {
     const handleResize = () => {
       if (window.innerWidth >= 1200) {
         setBreakpoint("lg-desktop");
+      /*} else if (window.innerWidth >= 1090) {
+        setBreakpoint("md-desktop");*/
       } else if (window.innerWidth >= 992) {
         setBreakpoint("desktop");
       } else if (window.innerWidth >= 768) {
@@ -63,15 +65,23 @@ const HotCollections = () => {
       case "lg-desktop":
         return (
           <>
-            <div style={{}}>
+            <div style={{display:"flex", justifyContent:"center"}}>
               <Skeleton count={4} width={260} height={253.57} />
             </div>
           </>
         );
+      /*case "md-desktop":
+        return (
+          <>
+            <div style={{display:"flex", justifyContent:"center"}}>
+              <Skeleton count={4} width={229} height={236.12} />
+            </div>
+          </>
+        );*/
       case "desktop":
         return (
           <>
-            <div style={{}}>
+            <div style={{display:"flex", justifyContent:"center"}}>
               <Skeleton count={3} width={296} height={273.85} />
             </div>
           </>
@@ -117,10 +127,10 @@ const HotCollections = () => {
       <div
         onClick={onClick}
         className="custom-arrow--next"
-        style={{
+        /*style={{
           position: "absolute",
           top: "50%",
-          right: "98px",
+          right: "98%",
           transform: "translateY(-50%)",
           zIndex: 2,
           width: 40,
@@ -132,7 +142,7 @@ const HotCollections = () => {
           alignItems: "center",
           justifyContent: "center",
           cursor: "pointer",
-        }}
+        }}*/
       >
         <i className="fa fa-chevron-right" style={{ fontSize: 16 }} />
       </div>
@@ -147,7 +157,7 @@ const HotCollections = () => {
         /*style={{
           position: "absolute",
           top: "50%",
-          left: "90%x",
+          left: "90%",
           transform: "translateY(-50%)",
           zIndex: 2,
           width: 40,
@@ -167,13 +177,13 @@ const HotCollections = () => {
   }
 
   const settings = {
-    dots: true,
+    dots: false,
     dotsClass: "slick-dots slick-thumb",
     infinite: true,
     speed: 600,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
+    /*nextArrow: <NextArrow />,*/
     prevArrow: <PrevArrow />,
     responsive: [
       { breakpoint: 1200, settings: { slidesToShow: 4, slidesToScroll: 1 } },
@@ -224,7 +234,7 @@ const HotCollections = () => {
               <div className="slider_container">
                 <Slider {...settings}>
                   {img.map((image, index) => (
-                    <div key={index} className="" style={{}}>
+                    <div key={index} className="px-1" style={{margin:"10px"}}>
                       <div className="nft_coll">
                         <div className="nft_wrap">
                           <Link to="/item-details">

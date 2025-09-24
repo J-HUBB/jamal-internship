@@ -13180,7 +13180,6 @@ a.read_more i {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   margin-bottom: 10px;
-  width: 100%;
   text-align: center;
 }
 
@@ -15439,19 +15438,20 @@ img {
   }
 }
 
-.slick-slide {
+/*.slick-slide>div{
   padding: 0 12px;
-}
+  margin: 0 10px;
+}*/
 
 .slick-initialized .slick-slide {
   display: flex;
   justify-content: center;
 }
 
-/*.custom-arrow--prev {
+.custom-arrow--prev {
   position: absolute;
   top: 50%;
-  right: 100%;
+  right: 98%;
   transform: translateY(-50%);
   z-index: 2;
   width: 40px;
@@ -15468,7 +15468,7 @@ img {
 .custom-arrow--next {
   position: absolute;
   top: 50%;
-  left: 100%;
+  left: 98%;
   transform: translateY(-50%);
   z-index: 2;
   width: 40px;
@@ -15480,7 +15480,7 @@ img {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-}*/
+}
 
 .slider_container {
   display: block;
@@ -15511,51 +15511,6 @@ img {
     display: none;
   }
 
-  body #section-collections .custom-arrow--prev {
-    position: absolute;
-    top: 50%;
-    right: 87%;
-    transform: translateY(-50%);
-    z-index: 2;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-
-  #section-collections .nft_coll {
-    background: #ffffff;
-    padding-bottom: 10px;
-    border: solid 1px #dddddd;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    margin-bottom: 10px;
-    width: 295px;
-    text-align: center;
-  }
-
-  body #section-collections .custom-arrow--next {
-    position: absolute;
-    top: 50%;
-    left: 87%;
-    transform: translateY(-50%);
-    z-index: 2;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
 }
 
 @media only screen and (min-width: 360px) and (max-width: 480px) {
@@ -15622,51 +15577,6 @@ img {
     display: block;
   }
 
-  #section-collections .custom-arrow--prev {
-    position: absolute;
-    top: 50%;
-    right: 91%;
-    transform: translateY(-50%);
-    z-index: 2;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-
-  #body .nft_coll {
-    background: #ffffff;
-    padding-bottom: 10px;
-    border: solid 1px #dddddd;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    margin-bottom: 10px;
-    width: 390px;
-    text-align: center;
-  }
-
-  #section-collections .custom-arrow--next {
-    position: absolute;
-    top: 50%;
-    left: 89%;
-    transform: translateY(-50%);
-    z-index: 2;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
 }
 
 /*@media only screen and (min-width: 480px) and (max-width: 767px) {
@@ -15703,7 +15613,6 @@ img {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     margin-bottom: 10px;
-    width: 350px;
   }
 }*/
 
@@ -15963,53 +15872,6 @@ img {
     top: 22.5%;
   }
 
-  #section-collections .custom-arrow--prev {
-        position: absolute;
-        top: 50%;
-        right: 93%;
-        transform: translateY(-50%);
-        z-index: 2;
-        width: 40px;
-        height: 40px;
-        background: #fff;
-        border-radius: 50%;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-      }
-  
-  #section-collections .nft_coll {
-   background: #ffffff;
-   padding-bottom: 10px;
-   border: solid 1px #dddddd;
-   border-radius: 10px;
-   -moz-border-radius: 10px;
-   -webkit-border-radius: 10px;
-   margin-bottom: 10px;
-   width: 380px;
-   text-align: center;
- }
-
-   #section-collections .custom-arrow--next {
-        position: absolute;
-        top: 50%;
-        left: 90%;
-        transform: translateY(-50%);
-        z-index: 2;
-        width: 40px;
-        height: 40px;
-        background: #fff;
-        border-radius: 50%;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-      }
-
-
 }
 
 /*@media only screen and (max-width: 1090px) {
@@ -16259,51 +16121,6 @@ img {
     top: 22.5%;
   }
 
-     #section-collections .custom-arrow--prev {
-        position: absolute;
-        top: 50%;
-        right: 93%;
-        transform: translateY(-50%);
-        z-index: 2;
-        width: 40px;
-        height: 40px;
-        background: #fff;
-        border-radius: 50%;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-      }
-
-      body #section-collections .custom-arrow--next {
-        position: absolute;
-        top: 50%;
-        right: 93%;
-        transform: translateY(-50%);
-        z-index: 2;
-        width: 40px;
-        height: 40px;
-        background: #fff;
-        border-radius: 50%;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-    }
-
-  body #section-collections .nft_coll {
-    background: #ffffff;
-    padding-bottom: 10px;
-    border: solid 1px #dddddd;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    margin-bottom: 10px;
-    width: 455px;
-    text-align: center;
-  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
@@ -17099,7 +16916,6 @@ img {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     margin-bottom: 10px;
-    width: 295px;
     text-align: center;
   }
 
@@ -17153,7 +16969,6 @@ img {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     margin-bottom: 10px;
-    width: 350px;
   }
 }*/
 
@@ -17218,39 +17033,6 @@ img {
     margin-bottom: 0px;
   }
 
-  .custom-arrow--prev {
-    position: absolute;
-    top: 50%;
-    right: 93%;
-    transform: translateY(-50%);
-    z-Index: 2;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border-Radius: 50%;
-    box-Shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-Items: center;
-    justify-Content: center;
-    cursor: pointer;
-  }
-
-  .custom-arrow--next {
-    position: absolute;
-    top: 50%;
-    left: 93%;
-    transform: translateY(-50%);
-    z-Index: 2;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border-Radius: 50%;
-    box-Shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-Items: center;
-    justify-Content: center;
-    cursor: pointer;
-}
 }*/
 
 /*@media only screen and (max-width: 360px) {
@@ -17261,51 +17043,6 @@ img {
   .container {
     padding-left: 15px;
     padding-right: 15px;
-  }
-
-  .custom-arrow--prev {
-    position: absolute;
-    top: 50%;
-    right: 91%;
-    transform: translateY(-50%);
-    z-Index: 2;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border-Radius: 50%;
-    box-Shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-Items: center;
-    justify-Content: center;
-    cursor: pointer;
-  }
-
-  .nft_coll {
-    background: #ffffff;
-    padding-bottom: 10px;
-    border: solid 1px #dddddd;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    margin-bottom: 10px;
-    width: 350px;
-  }
-
-  .custom-arrow--next {
-    position: absolute;
-    top: 50%;
-    left: 91%;
-    transform: translateY(-50%);
-    z-Index: 2;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border-Radius: 50%;
-    box-Shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-Items: center;
-    justify-Content: center;
-    cursor: pointer;
   }
  }*/
 
@@ -17338,51 +17075,6 @@ section {
   background-attachment: scroll;
 }
 
-.custom-arrow--prev {
-  position: absolute;
-  top: 50%;
-  right: 95%;
-  transform: translateY(-50%);
-  z-index: 2;
-  width: 40px;
-  height: 40px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.nft_coll {
-  background: #ffffff;
-  padding-bottom: 10px;
-  border: solid 1px #dddddd;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  margin-bottom: 10px;
-  width: 100%;
-  text-align: center;
-}
-
-.custom-arrow--next {
-  position: absolute;
-  top: 50%;
-  left: 96%;
-  transform: translateY(-50%);
-  z-index: 2;
-  width: 40px;
-  height: 40px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
 
 /* section control */
 @media only screen and (min-width: 768) and (max-device-width: 1024) and (orientation: portrait) {
@@ -17394,50 +17086,6 @@ section {
     background-attachment: scroll;
   }
 
-  .custom-arrow--prev {
-    position: absolute;
-    top: 50%;
-    right: 100%;
-    transform: translateY(-50%);
-    z-index: 2;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-
-  #section-collections .nft_coll {
-    background: #ffffff;
-    padding-bottom: 10px;
-    border: solid 1px #dddddd;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    margin-bottom: 10px;
-    width: 315px;
-  }
-
-  body #section-collections .custom-arrow--next {
-    position: absolute;
-    top: 50%;
-    left: 100%;
-    transform: translateY(-50%);
-    z-index: 2;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
 }
 
 @media only screen and (min-width: 992) and (max-width: 1090px) {
@@ -17498,34 +17146,6 @@ section {
     top: -21px;
   }
 
-  .custom-arrow--prev {
-    position: absolute;
-    top: 50%;
-    right: 97%;
-    transform: translateY(-50%);
-    z-index: 2;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-
-  .nft_coll {
-    background: #ffffff;
-    padding-bottom: 10px;
-    border: solid 1px #dddddd;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    margin-bottom: 10px;
-    width: 260px;
-  }
-
   /*.nft_wrap {
     position: relative;
     width: 100%;
@@ -17535,23 +17155,6 @@ section {
     -moz-border-radius: 10px 10px 0 0;
     -webkit-border-radius: 10px 10px 0 0;
  }*/
-
-  .custom-arrow--next {
-    position: absolute;
-    top: 50%;
-    left: 98%;
-    transform: translateY(-50%);
-    z-index: 2;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
 }
 
 .skeleton-box {
