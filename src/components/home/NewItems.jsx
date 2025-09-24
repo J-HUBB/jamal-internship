@@ -1,19 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CountDown from "../CountDown";
+import Skeleton from "../UI/Skeleton";
 
 const NewItems = () => {
   const [img, setImg] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const expiryDate = Date.now() + 60 * 60 * 1000;
 
   async function fetchImages() {
     const { data } = await axios.get(
@@ -25,6 +22,9 @@ const NewItems = () => {
 
   useEffect(() => {
     fetchImages();
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
   });
 
   function NextArrow({ onClick }) {
@@ -87,14 +87,12 @@ const NewItems = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
-    /*prevArrow: <PrevArrow />,*/
+    prevArrow: <PrevArrow />,
     responsive: [
       { breakpoint: 1200, settings: { slidesToShow: 4, slidesToScroll: 1 } },
-      { breakpoint: 1024, settings: { slidesToShow: 4, slidesToScroll: 1 } },
-      { breakpoint: 992, settings: { slidesToShow: 3, slidesToScroll: 1 } },
-      { breakpoint: 768, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-      { breakpoint: 576, settings: { slidesToShow: 1, slidesToScroll: 1 } },
-      { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+      { breakpoint: 900, settings: { slidesToShow: 3, slidesToScroll: 1 } },
+      { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+      { breakpoint: 0, settings: { slidesToShow: 1, slidesToScroll: 1 } },
     ],
   };
 
@@ -108,70 +106,140 @@ const NewItems = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          {/*{new Array(4).fill(0).map((_, index) => (*/}
-          <Slider {...settings}>
-            {img.map(
-              (image, index) => (
-                <div key={index} className="px-1">
-                  <div className="nft__item">
-                    <div className="author_list_pp">
-                      <Link
-                        to="/author"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Creator: Monica Lucas"
-                      >
-                        <img className="lazy" src={image.authorImage} alt="" />
-                        <i className="fa fa-check"></i>
-                      </Link>
-                    </div>
-                    <div>
-                      <CountDown expiryDate={expiryDate} />
-                    </div>
-
-                    <div className="nft__item_wrap">
-                      <div className="nft__item_extra">
-                        <div className="nft__item_buttons">
-                          <button>Buy Now</button>
-                          <div className="nft__item_share">
-                            <h4>Share</h4>
-                            <a href="" target="_blank" rel="noreferrer">
-                              <i className="fa fa-facebook fa-lg"></i>
-                            </a>
-                            <a href="" target="_blank" rel="noreferrer">
-                              <i className="fa fa-twitter fa-lg"></i>
-                            </a>
-                            <a href="">
-                              <i className="fa fa-envelope fa-lg"></i>
-                            </a>
-                          </div>
-                        </div>
+          {loading ? (
+            <div className="slider_container">
+              <Slider {...settings}>
+                {new Array(4).fill(0).map((_, index) => (
+                  <div key={index} className="px-1">
+                    <div className="nft__item" key={index}>
+                      <div className="author_list_pp">
+                        <Link
+                          to={``}
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Creator: Monica Lucas"
+                        >
+                          <Skeleton
+                            width="50px"
+                            height="50px"
+                            borderRadius="50%"
+                          />
+                          <i className="fa fa-check"></i>
+                        </Link>
                       </div>
 
-                      <Link to="/item-details">
-                        <img
-                          src={image.nftImage}
-                          className="lazy nft__item_preview"
-                          alt=""
-                        />
-                      </Link>
-                    </div>
-                    <div className="nft__item_info">
-                      <Link to="/item-details">
-                        <h4>{image.title}</h4>
-                      </Link>
-                      <div className="nft__item_price">{image.price} ETH</div>
+                      <div className="nft__item_wrap">
+                        <div className="nft__item_extra">
+                          <div className="nft__item_buttons">
+                            <button>Buy Now</button>
+                            <div className="nft__item_share">
+                              <h4>Share</h4>
+                              <a
+                                href="https://www.facebook.com/sharer/sharer.php?u=https://gigaland.io"
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                <i className="fa fa-facebook fa-lg"></i>
+                              </a>
+                              <a
+                                href="https://twitter.com/intent/tweet?url=https://gigaland.io"
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                <i className="fa fa-twitter fa-lg"></i>
+                              </a>
+                              <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://gigaland.io">
+                                <i className="fa fa-envelope fa-lg"></i>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <Link to={``}>
+                          <Skeleton width="100%" height="350px" />
+                        </Link>
+                      </div>
+                      <div className="nft__item_info">
+                        <Link to={``}>
+                          <Skeleton width="180px" height="30px" />
+                        </Link>
+                        <Skeleton width="100px" height="20px" />
+                      </div>
                       <div className="nft__item_like">
-                        <i className="fa fa-heart"></i>
-                        <span>{image.likes}</span>
+                        <Skeleton width="30px" height="15px" />
                       </div>
                     </div>
                   </div>
-                </div>
-              )
-              /*))*/
-            )}
-          </Slider>
+                ))}
+              </Slider>
+            </div>
+          ) : (
+            <div className="slider_container">
+              <Slider {...settings}>
+                {img.map((image, index) => (
+                  <div key={index} className="px-1">
+                    <div className="nft__item" key={index}>
+                      <div className="author_list_pp">
+                        <Link
+                          to="/author"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Creator: Monica Lucas"
+                        >
+                          <img
+                            className="lazy"
+                            src={image.authorImage}
+                            alt=""
+                          />
+                          <i className="fa fa-check"></i>
+                        </Link>
+                      </div>
+                      {image.expiryDate && (
+                        <CountDown expiryDate={image.expiryDate} />
+                      )}
+                      <div className="nft__item_wrap">
+                        <div className="nft__item_extra">
+                          <div className="nft__item_buttons">
+                            <button>Buy Now</button>
+                            <div className="nft__item_share">
+                              <h4>Share</h4>
+                              <a href="" target="_blank" rel="noreferrer">
+                                <i className="fa fa-facebook fa-lg"></i>
+                              </a>
+                              <a href="" target="_blank" rel="noreferrer">
+                                <i className="fa fa-twitter fa-lg"></i>
+                              </a>
+                              <a href="">
+                                <i className="fa fa-envelope fa-lg"></i>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <Link to="/item-details">
+                          <img
+                            src={image.nftImage}
+                            className="lazy nft__item_preview"
+                            alt=""
+                          />
+                        </Link>
+                      </div>
+                      <div className="nft__item_info">
+                        <Link to="/item-details">
+                          <h4>{image.title}</h4>
+                        </Link>
+                        <div className="nft__item_price">{image.price} ETH</div>
+                        <div className="nft__item_like">
+                          <i className="fa fa-heart"></i>
+                          <span>{image.likes}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+            </div>
+          )}
         </div>
       </div>
     </section>

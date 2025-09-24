@@ -6,6 +6,7 @@ const CountDown = ({ expiryDate }) => {
   const [timeText, setTimeText] = useState("");
   const [intervalId, setIntervalId] = useState();
 
+
   useEffect(() => {
     calculateTime();
     const intervalId = setInterval(() => {
@@ -19,7 +20,8 @@ const CountDown = ({ expiryDate }) => {
     };
   }, [expiryDate]);
 
-  function calculateTime() {
+  function calculateTime() {  /*const expiryDate = Date.now() + 60 * 60 * 1000;*/
+
     const millisLeft = expiryDate - Date.now();
 
     if (millisLeft < 0) {

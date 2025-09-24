@@ -4,8 +4,6 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "react-loading-skeleton/dist/skeleton.css";
-/*import Skeleton from "react-loading-skeleton";*/
 import Skeleton from "../UI/Skeleton";
 
 const HotCollections = () => {
@@ -13,7 +11,6 @@ const HotCollections = () => {
   const [img, setImg] = useState([]);
   const [loading, setLoading] = useState(true);
   const [breakpoint, setBreakpoint] = useState("sm-mobile");
-  //const [error, setError] = useState(null);
 
   async function fetchImages() {
     const { data } = await axios.get(
@@ -60,7 +57,7 @@ const HotCollections = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const renderSkeleton = () => {
+  /*const renderSkeleton = () => {
     switch (breakpoint) {
       case "lg-desktop":
         return (
@@ -77,7 +74,7 @@ const HotCollections = () => {
               <Skeleton count={4} width={229} height={236.12} />
             </div>
           </>
-        );*/
+        );
       case "desktop":
         return (
           <>
@@ -120,7 +117,7 @@ const HotCollections = () => {
           </>
         );
     }
-  };
+  };*/
 
   function NextArrow({ onClick }) {
     return (
@@ -183,15 +180,13 @@ const HotCollections = () => {
     speed: 600,
     slidesToShow: 4,
     slidesToScroll: 1,
-    /*nextArrow: <NextArrow />,*/
+    nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
       { breakpoint: 1200, settings: { slidesToShow: 4, slidesToScroll: 1 } },
-      { breakpoint: 1024, settings: { slidesToShow: 4, slidesToScroll: 1 } },
-      { breakpoint: 992, settings: { slidesToShow: 3, slidesToScroll: 1 } },
-      { breakpoint: 768, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-      { breakpoint: 576, settings: { slidesToShow: 1, slidesToScroll: 1 } },
-      { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+      { breakpoint: 900, settings: { slidesToShow: 3, slidesToScroll: 1 } },
+      { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+      { breakpoint: 0, settings: { slidesToShow: 1, slidesToScroll: 1 } },
     ],
     /*customPaging: function(i) {
       const slide = img[i];
@@ -221,16 +216,38 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div
-            style={{
-              display: "block",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            {loading ? (
-              renderSkeleton()
-            ) : (
+            {loading ? (<div className="slider_container">
+              <Slider {...settings}>
+                {new Array(8).fill(0).map((_, index) => (
+                 <div key={index} className="px-1" style={{margin:"10px"}}>
+                  <div className="nft_coll" key={index} >
+                    <div className="nft_wrap">
+                      <Link to={``}>
+                        <Skeleton width="100%" height="150px" />
+                      </Link>
+                    </div>
+                    <div className="nft_coll_pp">
+                      <Link to={``}>
+                        <Skeleton
+                          width="50px"
+                          height="50px"
+                          borderRadius="50%"
+                        />
+                      </Link>
+                      <i className="fa fa-check"></i>
+                    </div>
+                    <div className="nft_coll_info">
+                      <Link to="">
+                        <Skeleton width="100px" height="20px" />
+                      </Link>
+                      <br />
+                      <Skeleton width="60px" height="20px" />
+                    </div>
+                  </div>
+                  </div>
+                ))}
+              </Slider></div>
+              ) : (
               <div className="slider_container">
                 <Slider {...settings}>
                   {img.map((image, index) => (
@@ -269,7 +286,6 @@ const HotCollections = () => {
             )}
           </div>
         </div>
-      </div>
     </section>
   );
 };
