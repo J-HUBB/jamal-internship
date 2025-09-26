@@ -17,7 +17,6 @@ const NewItems = () => {
       `https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems`
     );
     setImg(data);
-    console.log(data);
   }
 
   useEffect(() => {

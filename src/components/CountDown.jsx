@@ -7,8 +7,9 @@ const CountDown = ({ expiryDate }) => {
   const [intervalId, setIntervalId] = useState();
 
 
-  useEffect(() => {
+  React.useEffect(() => {
     calculateTime();
+
     const intervalId = setInterval(() => {
       calculateTime();
     }, 1000);
@@ -17,10 +18,10 @@ const CountDown = ({ expiryDate }) => {
 
     return () => {
       clearInterval(intervalId);
-    };
-  }, [expiryDate]);
+    }
+  }, []);
 
-  function calculateTime() {  /*const expiryDate = Date.now() + 60 * 60 * 1000;*/
+  function calculateTime() {  
 
     const millisLeft = expiryDate - Date.now();
 
