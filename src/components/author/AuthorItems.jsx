@@ -1,7 +1,6 @@
-import React, { useCallback, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import Skeleton from "../UI/Skeleton";
-import { useEffect } from "react";
 
 const AuthorItems = ({ authorData }) => {
   const skeletonLoading = new Array(8).fill(0).map((_, index) => (
@@ -39,7 +38,7 @@ const AuthorItems = ({ authorData }) => {
                 >
                   <div className="nft__item">
                     <div className="author_list_pp">
-                      <Link to="">
+                      <Link to={`/author/${item.authorId}`}>
                         <img
                           className="lazy"
                           src={authorData.authorImage}
