@@ -22,9 +22,9 @@ const NewItems = () => {
   useEffect(() => {
     fetchImages();
     setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  });
+    setLoading(false);
+    }, 2000);
+  }, []);
 
   function NextArrow({ onClick }) {
     return (
@@ -98,10 +98,10 @@ const NewItems = () => {
   return (
     <section id="section-items" className="no-bottom">
       <div className="container">
-        <div className="row">
+        <div className="row fadeIn">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>New Items</h2>
+              <h2 data-aos="fadeIn">New Items</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
@@ -112,19 +112,12 @@ const NewItems = () => {
                   <div key={index} className="px-1">
                     <div className="nft__item" key={index}>
                       <div className="author_list_pp">
-                        <Link
-                          to={``}
-                          data-bs-toggle="tooltip"
-                          data-bs-placement="top"
-                          title="Creator: Monica Lucas"
-                        >
-                          <Skeleton
-                            width="50px"
-                            height="50px"
-                            borderRadius="50%"
-                          />
-                          <i className="fa fa-check"></i>
-                        </Link>
+                        <Skeleton
+                          width="50px"
+                          height="50px"
+                          borderRadius="50%"
+                        />
+                        <i className="fa fa-check"></i>
                       </div>
 
                       <div className="nft__item_wrap">
@@ -154,14 +147,10 @@ const NewItems = () => {
                           </div>
                         </div>
 
-                        <Link to={``}>
-                          <Skeleton width="100%" height="350px" />
-                        </Link>
+                        <Skeleton width="100%" height="350px" />
                       </div>
                       <div className="nft__item_info">
-                        <Link to={``}>
-                          <Skeleton width="180px" height="30px" />
-                        </Link>
+                        <Skeleton width="180px" height="30px" />
                         <Skeleton width="100px" height="20px" />
                       </div>
                       <div className="nft__item_like">
@@ -183,7 +172,7 @@ const NewItems = () => {
                           to={`/author/${image.authorId}`}
                           data-bs-toggle="tooltip"
                           data-bs-placement="top"
-                          title="Creator: Monica Lucas"
+                          title={`Creator: ${image.authorId}`}
                         >
                           <img
                             className="lazy"
@@ -215,7 +204,7 @@ const NewItems = () => {
                           </div>
                         </div>
 
-                        <Link to="/item-details">
+                        <Link to={`/item-details/${image.nftId}`}>
                           <img
                             src={image.nftImage}
                             className="lazy nft__item_preview"
@@ -224,7 +213,7 @@ const NewItems = () => {
                         </Link>
                       </div>
                       <div className="nft__item_info">
-                        <Link to="/item-details">
+                        <Link to={`/item-details/${image.nftId}`}>
                           <h4>{image.title}</h4>
                         </Link>
                         <div className="nft__item_price">{image.price} ETH</div>

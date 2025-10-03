@@ -22,9 +22,9 @@ const Author = () => {
   useEffect(() => {
     /*new WOW.WOW({
       live: false,
-    }).init();
+    }).init();*/
 
-    window.scrollTo(0, 0);*/
+    window.scrollTo(0, 0);
     getAuthorData();
   }, [getAuthorData]);
 

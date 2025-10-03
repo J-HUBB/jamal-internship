@@ -7,7 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Skeleton from "../UI/Skeleton";
 
 const HotCollections = () => {
-  const { nftId } = useParams();
   const [img, setImg] = useState([]);
   const [loading, setLoading] = useState(true);
   const [breakpoint, setBreakpoint] = useState("sm-mobile");
@@ -19,14 +18,6 @@ const HotCollections = () => {
     setImg(data);
     console.log(data);
   }
-
-  /*useEffect(() => {
-    fetchImages();
-  }, []);*/
-
-  /*setTimeout(() => {
-    setLoading(false);
-  }, 3000);*/
 
   useEffect(() => {
     const handleResize = () => {
@@ -47,7 +38,7 @@ const HotCollections = () => {
       }
       setTimeout(() => {
         setLoading(false);
-      }, 3000);
+      }, 2000);
       fetchImages();
     };
 
@@ -204,12 +195,9 @@ const HotCollections = () => {
     <section
       id="section-collections"
       className="no-bottom"
-      data-aos="fade-up"
-      data-aos-duration="1500"
-      data-aos-delay="1000"
     >
       <div className="container">
-        <div className="row">
+        <div className="row fadeIn" >
           <div className="col-lg-12">
             <div className="text-center">
               <h2>Hot Collections</h2>
@@ -254,7 +242,7 @@ const HotCollections = () => {
                     <div key={index} className="px-1" style={{margin:"10px"}}>
                       <div className="nft_coll">
                         <div className="nft_wrap">
-                          <Link to="/item-details">
+                          <Link to={`/item-details/${image.nftId}`}>
                             <img
                               src={image.nftImage}
                               className="lazy img-fluid"

@@ -1470,6 +1470,12 @@
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
 }
+[data-aos] {
+  visibility: hidden;
+}
+[data-aos].animated {
+  visibility: visible;
+}
 
 @-webkit-keyframes fadeInUpBig {
   from {

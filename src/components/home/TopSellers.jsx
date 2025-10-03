@@ -18,9 +18,9 @@ const TopSellers = () => {
 
   useEffect(() => {
     getExploreData();
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
+     setTimeout(() => {
+       setLoading(false);
+     }, 2000)
   }, []);
 
   return (
@@ -33,7 +33,7 @@ const TopSellers = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="col-md-12">
+          <div className="col-md-12 fadeIn">
             {loading ? (
               <ol className="author_list">
                 {new Array(12).fill(0).map((_, index) => (

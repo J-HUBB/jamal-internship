@@ -5,10 +5,21 @@ import Landing from "../components/home/Landing";
 import LandingIntro from "../components/home/LandingIntro";
 import NewItems from "../components/home/NewItems";
 import TopSellers from "../components/home/TopSellers";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    Aos.init({
+      useClassNames: true,
+      initClassName: false,
+      animatedClassName: "animated",
+      easing: "ease-in",
+      duration: 1000,
+      once: true,
+      delay: 1250,
+    });
   }, []);
 
   return (
