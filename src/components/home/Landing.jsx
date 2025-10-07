@@ -33,7 +33,7 @@ const Landing = () => {
                 Create, sell or collect digital items.
               </h1>
               <p
-                className="lead "
+                className="lead  fadeInUp"
                 data-aos="fadeInUp"
                 data-aos-delay="1000"
               >
@@ -43,7 +43,8 @@ const Landing = () => {
               </p>
               <div className="spacer-10"></div>
               <Link
-                className="btn-main fadeInUp lead"
+                className="btn-main  lead"
+                data-aos="fadeInUp"
                 data-aos-delay="1250"
                 to="/explore"
               >

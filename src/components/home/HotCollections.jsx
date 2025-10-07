@@ -23,7 +23,7 @@ const HotCollections = () => {
     const handleResize = () => {
       if (window.innerWidth >= 1200) {
         setBreakpoint("lg-desktop");
-      /*} else if (window.innerWidth >= 1090) {
+        /*} else if (window.innerWidth >= 1090) {
         setBreakpoint("md-desktop");*/
       } else if (window.innerWidth >= 992) {
         setBreakpoint("desktop");
@@ -192,88 +192,87 @@ const HotCollections = () => {
   };
 
   return (
-    <section
-      id="section-collections"
-      className="no-bottom"
-    >
+    <section id="section-collections" className="no-bottom">
       <div className="container">
-        <div className="row fadeIn" >
+        <div className="row fadeIn">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Hot Collections</h2>
+              <h2 data-aos="fadeIn">Hot Collections</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-            {loading ? (<div className="slider_container">
-              <Slider {...settings}>
+          {loading ? (
+            <div className="slider_container">
+              <Slider {...settings} data-aos="fadeIn">
                 {new Array(8).fill(0).map((_, index) => (
-                 <div key={index} className="px-1" style={{margin:"10px"}}>
-                  <div className="nft_coll" key={index} >
-                    <div className="nft_wrap">
-                      <Link to={``}>
-                        <Skeleton width="100%" height="150px" />
-                      </Link>
-                    </div>
-                    <div className="nft_coll_pp">
-                      <Link to={``}>
-                        <Skeleton
-                          width="50px"
-                          height="50px"
-                          borderRadius="50%"
-                        />
-                      </Link>
-                      <i className="fa fa-check"></i>
-                    </div>
-                    <div className="nft_coll_info">
-                      <Link to="">
-                        <Skeleton width="100px" height="20px" />
-                      </Link>
-                      <br />
-                      <Skeleton width="60px" height="20px" />
-                    </div>
-                  </div>
-                  </div>
-                ))}
-              </Slider></div>
-              ) : (
-              <div className="slider_container">
-                <Slider {...settings}>
-                  {img.map((image, index) => (
-                    <div key={index} className="px-1" style={{margin:"10px"}}>
-                      <div className="nft_coll">
-                        <div className="nft_wrap">
-                          <Link to={`/item-details/${image.nftId}`}>
-                            <img
-                              src={image.nftImage}
-                              className="lazy img-fluid"
-                              alt=""
-                            />
-                          </Link>
-                        </div>
-                        <div className="nft_coll_pp">
-                          <Link to={`/author/${image.authorId}`}>
-                            <img
-                              className="lazy pp-coll"
-                              src={image.authorImage}
-                              alt=""
-                            />
-                          </Link>
-                          <i className="fa fa-check"></i>
-                        </div>
-                        <div className="nft_coll_info">
-                          <Link to="/explore">
-                            <h4>{image.title}</h4>
-                          </Link>
-                          <span>ERC-{image.code}</span>
-                        </div>
+                  <div key={index} className="px-1" style={{ margin: "10px" }}>
+                    <div className="nft_coll" key={index}>
+                      <div className="nft_wrap">
+                        <Link to={``}>
+                          <Skeleton width="100%" height="150px" />
+                        </Link>
+                      </div>
+                      <div className="nft_coll_pp">
+                        <Link to={``}>
+                          <Skeleton
+                            width="50px"
+                            height="50px"
+                            borderRadius="50%"
+                          />
+                        </Link>
+                        <i className="fa fa-check"></i>
+                      </div>
+                      <div className="nft_coll_info">
+                        <Link to="">
+                          <Skeleton width="100px" height="20px" />
+                        </Link>
+                        <br />
+                        <Skeleton width="60px" height="20px" />
                       </div>
                     </div>
-                  ))}
-                </Slider>
-              </div>
-            )}
-          </div>
+                  </div>
+                ))}
+              </Slider>
+            </div>
+          ) : (
+            <div className="slider_container">
+              <Slider {...settings}>
+                {img.map((image, index) => (
+                  <div key={index} className="px-1" style={{ margin: "10px" }}>
+                    <div className="nft_coll">
+                      <div className="nft_wrap">
+                        <Link to={`/item-details/${image.nftId}`}>
+                          <img
+                            src={image.nftImage}
+                            className="lazy img-fluid"
+                            alt=""
+                          />
+                        </Link>
+                      </div>
+                      <div className="nft_coll_pp">
+                        <Link to={`/author/${image.authorId}`}>
+                          <img
+                            className="lazy pp-coll"
+                            src={image.authorImage}
+                            alt=""
+                          />
+                        </Link>
+                        <i className="fa fa-check"></i>
+                      </div>
+                      <div className="nft_coll_info">
+                        <Link to="/explore">
+                          <h4>{image.title}</h4>
+                        </Link>
+                        <span>ERC-{image.code}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+            </div>
+          )}
         </div>
+      </div>
     </section>
   );
 };

@@ -2832,6 +2832,7 @@ address span strong {
   text-align: center;
   border: solid 1px #dddddd;
   padding: 20px 0 20px 0;
+  pointer-events: auto;
 }
 
 .icon-box.s2 {
@@ -3002,6 +3003,7 @@ a.btn-fx.light:hover:before {
 
 .btn-main.btn-fullwidth {
   display: block;
+  pointer-events: auto;
 }
 
 a.btn-slider {
@@ -11770,6 +11772,10 @@ section.bg-grey {
 
 .wow {
   visibility: hidden;
+}
+
+.aos-animate {
+  pointer-events: auto; /* Enable pointer events */
 }
 
 #back-to-top {

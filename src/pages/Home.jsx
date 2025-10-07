@@ -16,9 +16,10 @@ const Home = () => {
       initClassName: false,
       animatedClassName: "animated",
       easing: "ease-in",
-      duration: 1000,
+      duration: 0,
       once: true,
-      delay: 1250,
+      delay: 0,
+      offset: 0,
     });
   }, []);
 
