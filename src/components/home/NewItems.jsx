@@ -88,11 +88,11 @@ const NewItems = () => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
-      { breakpoint: 1200, settings: { slidesToShow: 4, slidesToScroll: 1 } },
-      { breakpoint: 900, settings: { slidesToShow: 3, slidesToScroll: 1 } },
-      { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
       { breakpoint: 0, settings: { slidesToShow: 1, slidesToScroll: 1 } },
-    ],
+      { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+      { breakpoint: 900, settings: { slidesToShow: 3, slidesToScroll: 1 } },
+      { breakpoint: 1200, settings: { slidesToShow: 4, slidesToScroll: 1 } },
+    ]
   };
 
   return (
@@ -101,7 +101,7 @@ const NewItems = () => {
         <div className="row fadeIn">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2 data-aos="fadeIn">New Items</h2>
+              <h2 data-aos="fade-in" data-aos-duration="1000">New Items</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>

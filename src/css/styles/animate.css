@@ -1470,22 +1470,19 @@
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
-  animation-delay: 500ms, 750ms, 1000ms, 1250ms;
 }
 
 [data-aos].fadeInUp {
-  animation-delay: 500ms, 750ms, 1000ms, 1250ms;
+  animation-name: fadeInUp;
 }
 
 [data-aos].fadeIn {
   visibility: visible;
-  animation-delay: 500ms, 750ms, 1000ms, 1250ms;
 }
 
-[data-aos].animated {
+[data-aos] {
   visibility: visible;
   pointer-events: auto;
-  animation-delay: 500ms, 750ms, 1000ms, 1250ms;
 }
 
 @-webkit-keyframes fadeInUpBig {

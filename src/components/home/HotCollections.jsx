@@ -9,7 +9,6 @@ import Skeleton from "../UI/Skeleton";
 const HotCollections = () => {
   const [img, setImg] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [breakpoint, setBreakpoint] = useState("sm-mobile");
 
   async function fetchImages() {
     const { data } = await axios.get(
@@ -20,95 +19,11 @@ const HotCollections = () => {
   }
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1200) {
-        setBreakpoint("lg-desktop");
-        /*} else if (window.innerWidth >= 1090) {
-        setBreakpoint("md-desktop");*/
-      } else if (window.innerWidth >= 992) {
-        setBreakpoint("desktop");
-      } else if (window.innerWidth >= 768) {
-        setBreakpoint("tablet");
-      } else if (window.innerWidth >= 576) {
-        setBreakpoint("lg-mobile");
-      } else if (window.innerWidth >= 480) {
-        setBreakpoint("mobile");
-      } else {
-        setBreakpoint("sm-mobile");
-      }
       setTimeout(() => {
         setLoading(false);
       }, 2000);
       fetchImages();
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  /*const renderSkeleton = () => {
-    switch (breakpoint) {
-      case "lg-desktop":
-        return (
-          <>
-            <div style={{display:"flex", justifyContent:"center"}}>
-              <Skeleton count={4} width={260} height={253.57} />
-            </div>
-          </>
-        );
-      /*case "md-desktop":
-        return (
-          <>
-            <div style={{display:"flex", justifyContent:"center"}}>
-              <Skeleton count={4} width={229} height={236.12} />
-            </div>
-          </>
-        );
-      case "desktop":
-        return (
-          <>
-            <div style={{display:"flex", justifyContent:"center"}}>
-              <Skeleton count={3} width={296} height={273.85} />
-            </div>
-          </>
-        );
-      case "tablet":
-        return (
-          <>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <Skeleton count={2} width={296} height={273.85} />
-            </div>
-          </>
-        );
-      case "lg-mobile":
-        return (
-          <>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <Skeleton count={1} width={455} height={363.43} />
-            </div>
-          </>
-        );
-      case "mobile":
-        return (
-          <>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <Skeleton count={1} width={380} height={321.18} />
-            </div>
-          </>
-        );
-      case "sm-mobile":
-      default:
-        return (
-          <>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <Skeleton count={1} width={295} height={273.29} />
-            </div>
-          </>
-        );
-    }
-  };*/
+    },[]);
 
   function NextArrow({ onClick }) {
     return (
@@ -166,29 +81,19 @@ const HotCollections = () => {
 
   const settings = {
     dots: false,
-    dotsClass: "slick-dots slick-thumb",
     infinite: true,
     speed: 600,
     slidesToShow: 4,
     slidesToScroll: 1,
+    initialSlide: 0,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
-      { breakpoint: 1200, settings: { slidesToShow: 4, slidesToScroll: 1 } },
-      { breakpoint: 900, settings: { slidesToShow: 3, slidesToScroll: 1 } },
-      { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-      { breakpoint: 0, settings: { slidesToShow: 1, slidesToScroll: 1 } },
-    ],
-    /*customPaging: function(i) {
-      const slide = img[i];
-      return (
-        <a href={slide.nftImage}>
-          <div className="slick-dots slick-thumb">
-            {slide.id}
-          </div>
-        </a>
-      );
-    },*/
+      { breakpoint: 0, settings: { slidesToShow: 1, slidesToScroll: 1 }},
+      { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 }},
+      { breakpoint: 900, settings: { slidesToShow: 3, slidesToScroll: 1 }},
+      { breakpoint: 1200, settings: { slidesToShow: 4, slidesToScroll: 1 }},
+    ]
   };
 
   return (
@@ -197,16 +102,16 @@ const HotCollections = () => {
         <div className="row fadeIn">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2 data-aos="fadeIn">Hot Collections</h2>
+              <h2 data-aos="fade-in" data-aos-duration="1000">Hot Collections</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
           {loading ? (
             <div className="slider_container">
-              <Slider {...settings} data-aos="fadeIn">
+              <Slider {...settings} data-aos="fade-in">
                 {new Array(8).fill(0).map((_, index) => (
                   <div key={index} className="px-1" style={{ margin: "10px" }}>
-                    <div className="nft_coll" key={index}>
+                    <div className="nft_coll">
                       <div className="nft_wrap">
                         <Link to={``}>
                           <Skeleton width="100%" height="150px" />
@@ -238,8 +143,8 @@ const HotCollections = () => {
             <div className="slider_container">
               <Slider {...settings}>
                 {img.map((image, index) => (
-                  <div key={index} className="px-1" style={{ margin: "10px" }}>
-                    <div className="nft_coll">
+                  <div key={index} className="px-1" >
+                    <div className="nft_coll" key={index}>
                       <div className="nft_wrap">
                         <Link to={`/item-details/${image.nftId}`}>
                           <img

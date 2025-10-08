@@ -14,8 +14,8 @@ const Home = () => {
     Aos.init({
       useClassNames: true,
       initClassName: false,
-      animatedClassName: "animated",
-      easing: "ease-in",
+      animatedClassName: "aos-animate", 
+      easing: "ease",
       duration: 0,
       once: true,
       delay: 0,

@@ -8,13 +8,13 @@ const BrowseByCategory = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Browse by category</h2>
+              <h2 data-aos="fade-in" data-aos-duration="1000">Browse by category</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
           <div
             className="col-md-2 col-sm-4 col-6"
-            data-aos="fadeInRight"
+            data-aos="fade-right" data-aos-duration="1000" data-aos-ease="ease-in"
             data-aos-delay="100"
           >
             <Link to="/explore" className="icon-box style-2 rounded">
@@ -24,7 +24,7 @@ const BrowseByCategory = () => {
           </div>
           <div
             className="col-md-2 col-sm-4 col-6 mb-sm-30"
-            data-aos="fadeInRight"
+            data-aos="fade-right" data-aos-duration="1000" data-aos-ease="ease-in"
             data-aos-delay="200"
           >
             <Link to="/explore" className="icon-box style-2 rounded">
@@ -34,7 +34,7 @@ const BrowseByCategory = () => {
           </div>
           <div
             className="col-md-2 col-sm-4 col-6 mb-sm-30"
-            data-aos="fadeInRight"
+            data-aos="fade-right" data-aos-duration="1000" data-aos-ease="ease-in"
             data-aos-delay="300"
           >
             <Link to="/explore" className="icon-box style-2 rounded">
@@ -44,7 +44,7 @@ const BrowseByCategory = () => {
           </div>
           <div
             className="col-md-2 col-sm-4 col-6 mb-sm-30"
-            data-aos="fadeInRight"
+            data-aos="fade-right" data-aos-duration="1000" data-aos-ease="ease-in"
             data-aos-delay="400"
           >
             <Link to="/explore" className="icon-box style-2 rounded">
@@ -54,7 +54,7 @@ const BrowseByCategory = () => {
           </div>
           <div
             className="col-md-2 col-sm-4 col-6 mb-sm-30"
-            data-aos="fadeInRight"
+            data-aos="fade-right" data-aos-duration="1000" data-aos-ease="ease-in"
             data-aos-delay="500"
           >
             <Link to="/explore" className="icon-box style-2 rounded">
@@ -64,7 +64,7 @@ const BrowseByCategory = () => {
           </div>
           <div
             className="col-md-2 col-sm-4 col-6 mb-sm-30"
-            data-aos="fadeInRight"
+            data-aos="fade-right" data-aos-duration="1000" data-aos-ease="ease-in"
             data-aos-delay="600"
           >
             <Link to="/explore" className="icon-box style-2 rounded">

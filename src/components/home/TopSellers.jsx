@@ -29,11 +29,11 @@ const TopSellers = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2 data-aos="fadeIn">Top Sellers</h2>
+              <h2 data-aos="fade-in" data-aos-duration="1000" data-aos-ease="ease-in">Top Sellers</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="col-md-12 " data-aos="fadeIn">
+          <div className="col-md-12 " data-aos="fade-in" data-aos-duration="1000" data-aos-ease="ease-in">
             {loading ? (
               <ol className="author_list">
                 {new Array(12).fill(0).map((_, index) => (
