@@ -9,45 +9,26 @@ import CountDown from "../CountDown";
 import Skeleton from "../UI/Skeleton";
 
 const NewItems = () => {
-  const [img, setImg] = useState([]);
+  const [newItems, setNewItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
   async function fetchImages() {
     const { data } = await axios.get(
       `https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems`
     );
-    setImg(data);
+    setNewItems(data);
   }
 
   useEffect(() => {
     fetchImages();
     setTimeout(() => {
-    setLoading(false);
+      setLoading(false);
     }, 2000);
   }, []);
 
   function NextArrow({ onClick }) {
     return (
-      <div
-        onClick={onClick}
-        className="custom-arrow--next"
-        /*style={{
-          position: "absolute",
-          top: "50%",
-          right: "98%",
-          transform: "translateY(-50%)",
-          zIndex: 2,
-          width: 40,
-          height: 40,
-          background: "#fff",
-          borderRadius: "50%",
-          boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-        }}*/
-      >
+      <div onClick={onClick} className="custom-arrow--next">
         <i className="fa fa-chevron-right" style={{ fontSize: 16 }} />
       </div>
     );
@@ -55,26 +36,7 @@ const NewItems = () => {
 
   function PrevArrow({ onClick }) {
     return (
-      <div
-        onClick={onClick}
-        className="custom-arrow--prev"
-        /*style={{
-          position: "absolute",
-          top: "50%",
-          left: "90%",
-          transform: "translateY(-50%)",
-          zIndex: 2,
-          width: 40,
-          height: 40,
-          background: "#fff",
-          borderRadius: "50%",
-          boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-        }}*/
-      >
+      <div onClick={onClick} className="custom-arrow--prev">
         <i className="fa fa-chevron-left" style={{ fontSize: 16 }} />
       </div>
     );
@@ -92,7 +54,7 @@ const NewItems = () => {
       { breakpoint: 600, settings: { slidesToShow: 1, slidesToScroll: 1 } },
       { breakpoint: 900, settings: { slidesToShow: 3, slidesToScroll: 1 } },
       { breakpoint: 1200, settings: { slidesToShow: 4, slidesToScroll: 1 } },
-    ]
+    ],
   };
 
   return (
@@ -101,7 +63,9 @@ const NewItems = () => {
         <div className="row fadeIn">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2 data-aos="fade-in" data-aos-duration="1000">New Items</h2>
+              <h2 data-aos="fade-in" data-aos-duration="1000">
+                New Items
+              </h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
@@ -164,7 +128,7 @@ const NewItems = () => {
           ) : (
             <div className="slider_container">
               <Slider {...settings}>
-                {img.map((image, index) => (
+                {newItems.map((image, index) => (
                   <div key={index} className="px-1">
                     <div className="nft__item" key={index}>
                       <div className="author_list_pp">
@@ -191,13 +155,13 @@ const NewItems = () => {
                             <button>Buy Now</button>
                             <div className="nft__item_share">
                               <h4>Share</h4>
-                              <a href="" target="_blank" rel="noreferrer">
+                              <a href="/" target="_blank" rel="noreferrer">
                                 <i className="fa fa-facebook fa-lg"></i>
                               </a>
-                              <a href="" target="_blank" rel="noreferrer">
+                              <a href="/" target="_blank" rel="noreferrer">
                                 <i className="fa fa-twitter fa-lg"></i>
                               </a>
-                              <a href="">
+                              <a href="/">
                                 <i className="fa fa-envelope fa-lg"></i>
                               </a>
                             </div>

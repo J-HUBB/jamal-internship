@@ -13,7 +13,6 @@ const TopSellers = () => {
     );
 
     setTopSellers(data);
-    console.log(data);
   };
 
   useEffect(() => {
