@@ -1238,6 +1238,7 @@
 .fadeIn {
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
+  animation-delay: 500ms, 750ms, 1000ms, 1250ms;
 }
 
 @-webkit-keyframes fadeInDown {
@@ -1469,6 +1470,19 @@
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
+}
+
+[data-aos].fadeInUp {
+  animation-name: fadeInUp;
+}
+
+[data-aos].fadeIn {
+  visibility: visible;
+}
+
+[data-aos] {
+  visibility: visible;
+  pointer-events: auto;
 }
 
 @-webkit-keyframes fadeInUpBig {

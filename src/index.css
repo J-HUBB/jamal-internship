@@ -10,3 +10,14 @@
 @import "./css/styles/style.css";
 @import "./css/colors/scheme-01.css";
 @import "./css/styles/coloring.css";
+
+
+
+/*.slick-slide.slick-initialized > div {
+    margin: 0 10px;
+}*/
+
+/*.slick-slide>div{
+  padding: 0 12px;
+  margin: 0 10px;
+}*/

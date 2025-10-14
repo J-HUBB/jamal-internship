@@ -2832,6 +2832,7 @@ address span strong {
   text-align: center;
   border: solid 1px #dddddd;
   padding: 20px 0 20px 0;
+  pointer-events: auto;
 }
 
 .icon-box.s2 {
@@ -3002,6 +3003,7 @@ a.btn-fx.light:hover:before {
 
 .btn-main.btn-fullwidth {
   display: block;
+  pointer-events: auto;
 }
 
 a.btn-slider {
@@ -11772,6 +11774,10 @@ section.bg-grey {
   visibility: hidden;
 }
 
+.aos-animate {
+  pointer-events: auto; /* Enable pointer events */
+}
+
 #back-to-top {
   background: #ffffff;
   position: fixed;
@@ -13180,6 +13186,7 @@ a.read_more i {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .nft_coll.style-2 {
@@ -13206,7 +13213,7 @@ a.read_more i {
 .nft_wrap {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 100%;
   overflow: hidden;
   border-radius: 10px 10px 0 0;
   -moz-border-radius: 10px 10px 0 0;
@@ -13217,9 +13224,9 @@ a.read_more i {
   transform: scale(1.05);
 }
 
-.nft_coll {
+/*.nft_coll {
   text-align: center;
-}
+}*/
 
 .nft_coll_info {
   padding-bottom: 10px;
@@ -15437,6 +15444,63 @@ img {
   }
 }
 
+/*.slick-slide>div{
+  padding: 0 12px;
+  margin: 0 10px;
+}*/
+
+.slick-initialized .slick-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-arrow--prev {
+  position: absolute;
+  top: 50%;
+  right: 98%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.custom-arrow--next {
+  position: absolute;
+  top: 50%;
+  left: 98%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.custom-arrow--next:hover,
+.custom-arrow--prev:hover {
+  transform: scale(1.1);
+  -webkit-box-shadow: 5px 5px 30px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 5px 5px 30px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 30px 0px rgba(0, 0, 0, 0.2);
+}
+
+.slider_container {
+  display: block;
+  justify-content: center;
+}
+
 /* ================================================== */
 
 /* R E S P O N S I V E */
@@ -16507,10 +16571,10 @@ img {
     top: 22.5%;
   }
 }
-
 /* -------------------------------------------------- 
     design for 480px
-    /* -------------------------------------------------- */
+/* -------------------------------------------------- */
+
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   .container {
@@ -16648,6 +16712,7 @@ img {
     left: 0;
     top: -21px;
   }
+
 }
 
 .skeleton-box {
