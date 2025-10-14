@@ -85,11 +85,11 @@ const NewItems = () => {
     speed: 600,
     slidesToShow: 4,
     slidesToScroll: 1,
+    initialslide: 0,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
-      { breakpoint: 0, settings: { slidesToShow: 1, slidesToScroll: 1 } },
-      { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+      { breakpoint: 600, settings: { slidesToShow: 1, slidesToScroll: 1 } },
       { breakpoint: 900, settings: { slidesToShow: 3, slidesToScroll: 1 } },
       { breakpoint: 1200, settings: { slidesToShow: 4, slidesToScroll: 1 } },
     ]
